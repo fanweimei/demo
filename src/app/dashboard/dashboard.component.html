@@ -23,18 +23,62 @@
     </div>
   </div>
   <div class="dashboard-content">
+    <div class="chart-lib" [ngClass]="{'show': showLibPanel}">
+      <span class="add-btn" nzTitle="添加项" nzPlacement="left" nz-button nz-tooltip (click)="addChart()"><i nz-icon
+          [nzType]="showLibPanel?'double-right':'double-left'" nzTheme="outline"></i></span>
+      <div class="lib">
+        <h3>图表数据项库</h3>
+        <ul>
+          <li>
+            <img (dragend)="onDragChart($event, 0)" src="../../assets/lib/virus.png" alt="">
+            <p>2018年病毒Top10</p>
+          </li>
+          <li>
+            <img (dragend)="onDragChart($event, 1)" src="../../assets/lib/scans.png" alt="">
+            <p>设备扫描情况</p>
+          </li>
+          <li>
+            <img (dragend)="onDragChart($event, 2)" src="../../assets/lib/flow.png" alt="">
+            <p>数据流趋势分布</p>
+          </li>
+          <li>
+            <img (dragend)="onDragChart($event, 3)" src="../../assets/lib/muma.png" alt="">
+            <p>2018年木马攻击地域分布</p>
+          </li>
+          <li>
+            <img (dragend)="onDragChart($event, 4)" src="../../assets/lib/relation.png" alt="">
+            <p>可疑网站相关性</p>
+          </li>
+        </ul>
+      </div>
+    </div>
     <div class="drag-container">
       <div nz-row style="padding: 5px;">
         <div nz-col nzSpan="6">
-          <virus-table [height]="480"></virus-table>
+          <virus-table [height]="480" [y]="0"></virus-table>
+          <scans-link [height]="200" [y]="480"></scans-link>
         </div>
         <div nz-col nzSpan="12">
-          <flow-data-chart [height]="400"></flow-data-chart>
+          <flow-data-chart [height]="400" [y]="0"></flow-data-chart>
+          <relationship-chart [height]="500" [y]="400"></relationship-chart>
         </div>
         <div nz-col nzSpan="6">
-          <scans-link [height]="200"></scans-link>
+          <scans-link [height]="200" [y]="0"></scans-link>
+          <muma-chart [height]="400" [y]="200"></muma-chart>
         </div>
       </div>
+      <ng-container *ngFor="let item of extras" [ngSwitch]="item.type">
+        <virus-table *ngSwitchCase="0" [x]="item.x" [y]="item.y" [width]="item.width" [height]="item.height">
+        </virus-table>
+        <scans-link *ngSwitchCase="1" [x]="item.x" [y]="item.y" [width]="item.width" [height]="item.height">
+        </scans-link>
+        <flow-data-chart *ngSwitchCase="2" [x]="item.x" [y]="item.y" [width]="item.width" [height]="item.height">
+        </flow-data-chart>
+        <muma-chart *ngSwitchCase="3" [x]="item.x" [y]="item.y" [width]="item.width" [height]="item.height">
+        </muma-chart>
+        <relationship-chart *ngSwitchCase="4" [x]="item.x" [y]="item.y" [width]="item.width" [height]="item.height">
+        </relationship-chart>
+      </ng-container>
     </div>
   </div>
 </div>

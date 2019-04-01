@@ -17,6 +17,8 @@ import { PanelComponent } from './panel/panel.component';
 import { FlowdataChartComponent } from './dashboard/flow-data-chart.component';
 import { VirusTableComponent } from './dashboard/virus-table.component';
 import { ScansLinkComponent } from './dashboard/scans-link.component';
+import { MumaChartComponent } from './dashboard/muma-chart.component';
+import { RelationshipChartComponent } from './dashboard/relationship-chart.component';
 
 registerLocaleData(zh);
 
@@ -30,6 +32,8 @@ registerLocaleData(zh);
     FlowdataChartComponent,
     VirusTableComponent,
     ScansLinkComponent,
+    MumaChartComponent,
+    RelationshipChartComponent
   ],
   imports: [
     BrowserModule,

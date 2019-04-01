@@ -30,12 +30,65 @@
 }
 
 .dashboard-content {
+    position: relative;
     flex: 1;
     overflow: hidden;
     width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
 }
 .drag-container{
     //flex: 1;
     height: 2000px;
     width: 100%;
+}
+
+.chart-lib {
+    position: absolute;
+    right: -200px;
+    top: 0;
+    z-index: 9999;
+    width: 200px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    transition: 0.5s;
+    //overflow-y: auto;
+    .add-btn {
+        position: absolute;
+        left: -30px;
+        top: 50%;
+        transform: translate(0, -50%);
+        line-height: 32px;
+        height: 32px;
+        width: 32px;
+        text-align: center;
+        background: red;
+        color: #fff;
+        border-radius: 0;
+    }
+    h3 {
+        padding: 20px 0 10px 0;
+        text-align: center;
+        color: #fff;
+        border-bottom: 1px solid #fff;
+    }
+    ul {
+        padding: 10px;
+        li {
+            width: 100%;
+            text-align: center;
+            margin: 10px;
+            img {
+                width: 100px;
+                margin: 0 auto;
+            }
+            p {
+                line-height: 32px;
+                color: #fff;
+            }
+        }
+    }
+}
+.chart-lib.show {
+    right: 0;
 }

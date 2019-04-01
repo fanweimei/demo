@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Component({
     selector: 'flow-data-chart',
     template: `
-        <panel [height]="height" pTitle="数据流趋势分布">
+        <panel [width]="width" [height]="height" [x]="x" [y]="y" pTitle="数据流趋势分布">
             <div echarts [options]="option" class="chart" [loading]="loading"></div>
         </panel>
     `,

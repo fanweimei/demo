@@ -54,4 +54,21 @@ export class PanelComponent implements OnInit, AfterViewInit, OnChanges {
     }
     requestAnimationFrame(remove);
   }
+
+  getStyles() {
+    var style: any = {};
+    if (this.pHeight) {
+      style.height = this.pHeight + 'px';
+    }
+    if (this.width) {
+      style.width = this.width + 'px';
+    }
+    if (this.x) {
+      style.left = this.x + 'px';
+    }
+    if (this.y) {
+      style.top = this.y + 'px';
+    }
+    return style;
+  }
 }

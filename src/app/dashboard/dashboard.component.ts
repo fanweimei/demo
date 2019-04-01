@@ -12,41 +12,20 @@ export class DashboardComponent implements AfterViewInit {
   isAutoRefresh = false;
   refreshTimer = null;
   refreshTime = 60;
-  chartOption = {};
-  loading = true;
-  pos = [];
+  showLibPanel = false;
+  range = {
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0
+  };
+  extras = [];
+
   constructor(private http: HttpClient) { }
 
   ngAfterViewInit() {
-    const GetPos = () => {
-      const ele = document.body;
-      if (!ele) {
-        requestAnimationFrame(GetPos);
-        return;
-      }
-      setTimeout(() => {
-        const gap = 10;
-        const boundaryGap = 15;
-        const total = (ele.clientWidth - boundaryGap * 2 - gap * 10);
-        console.log(ele.clientWidth, ele.getBoundingClientRect())
-        this.pos.push({
-          x: boundaryGap,
-          y: 0,
-          width: total * 0.3,
-        });
-        this.pos.push({
-          x: this.pos[0].x + this.pos[0].width + gap,
-          y: 0,
-          width: total * 0.4
-        });
-        this.pos.push({
-          x: this.pos[1].x + this.pos[1].width + gap,
-          y: 0,
-          width: total * 0.3,
-        });
-      }, 10000);
-    };
-    requestAnimationFrame(GetPos);
+    this.range = document.querySelector('.dashboard-content').getBoundingClientRect();
+    console.log(this.range);
   }
 
   startRefreshTimer() {
@@ -60,6 +39,62 @@ export class DashboardComponent implements AfterViewInit {
           this.refreshTime = 60;
         }
       }, 1000);
+    }
+  }
+
+  addChart() {
+    this.showLibPanel = !this.showLibPanel;
+  }
+
+  onDragChart(e, id) {
+    if (e.x >= this.range.left && e.y <= this.range.right && e.y >= this.range.top && e.y <= this.range.bottom) {
+      switch (id) {
+        case 0:
+          this.extras.push({
+            type: 0,
+            x: e.x,
+            y: e.y,
+            height: 480,
+            width: 400
+          });
+          break;
+        case 1:
+          this.extras.push({
+            type: 1,
+            x: e.x,
+            y: e.y,
+            height: 230,
+            width: 400
+          });
+          break;
+        case 2:
+          this.extras.push({
+            type: 2,
+            x: e.x,
+            y: e.y,
+            height: 500,
+            width: 700
+          });
+          break;
+        case 3:
+          this.extras.push({
+            type: 3,
+            x: e.x,
+            y: e.y,
+            height: 500,
+            width: 600
+          });
+          break;
+        case 4:
+          this.extras.push({
+            type: 4,
+            x: e.x,
+            y: e.y,
+            height: 500,
+            width: 400
+          });
+          break;
+      }
     }
   }
 }

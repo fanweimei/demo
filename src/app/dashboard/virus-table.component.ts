@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Component({
     selector: 'virus-table',
     template: `
-        <panel [height]="height" pTitle="2018年1至9月病毒Top10">
+        <panel [width]="width" [height]="height" [x]="x" [y]="y" pTitle="2018年1至9月病毒Top10">
             <div>
                 <nz-table #tb [nzData]="data" [nzSize]="'small'" [nzShowPagination]="false">
                     <thead>

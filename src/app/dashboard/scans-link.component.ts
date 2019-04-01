@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Component({
     selector: 'scans-link',
     template: `
-        <panel [height]="height" pTitle="设备扫描情况">
+        <panel [width]="width" [height]="height" [x]="x" [y]="y" pTitle="设备扫描情况">
             <div>
                 <p>最后更新时间：2019/04/01 12:00:00</p>
                 <div>

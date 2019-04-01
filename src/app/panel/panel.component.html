@@ -1,4 +1,4 @@
-<div class="wrapper" [ngStyle]="{height: pHeight+'px'}">
+<div class="wrapper" [ngStyle]="getStyles()">
   <div [attr.id]="'box_'+id" class="box">
     <div class="title">
       <div class="title-left">
