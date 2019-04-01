@@ -1,0 +1,40 @@
+<div class="g-dashboard">
+  <div class="tool-bar">
+    <div class="bar-left">
+      <label>仪表盘：</label>
+      <nz-select style="width: 200px;" [(ngModel)]="source" nzPlaceHolder="请选择">
+        <nz-option nzValue="风险管理" nzLabel="风险管理"></nz-option>
+        <nz-option nzValue="系统监测" nzLabel="系统监测"></nz-option>
+        <nz-option nzValue="安全性检测" nzLabel="安全性检测"></nz-option>
+        <nz-option nzValue="网络概况" nzLabel="网络概况"></nz-option>
+        <nz-option nzValue="应用监管" nzLabel="应用监管"></nz-option>
+      </nz-select>
+      <nz-button-group>
+        <button nz-button>创建</button>
+        <button nz-button>重命名</button>
+        <button nz-button>删除</button>
+      </nz-button-group>
+    </div>
+    <div class="bar-right">
+      <span>刷新倒计时：</span><span>{{refreshTime}}</span>
+      <i style="font-size:18px;" nz-icon [type]="isAutoRefresh?'pause':'caret-right'" theme="outline" nz-tooltip
+        nzTitle="启动定时刷新" nzPlacement="bottom" (click)="startRefreshTimer()"></i>
+      <i nz-icon type="reload" theme="outline" nz-tooltip nzTitle="手动刷新" nzPlacement="bottom"></i>
+    </div>
+  </div>
+  <div class="dashboard-content">
+    <div class="drag-container">
+      <div nz-row style="padding: 5px;">
+        <div nz-col nzSpan="6">
+          <virus-table [height]="480"></virus-table>
+        </div>
+        <div nz-col nzSpan="12">
+          <flow-data-chart [height]="400"></flow-data-chart>
+        </div>
+        <div nz-col nzSpan="6">
+          <scans-link [height]="200"></scans-link>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

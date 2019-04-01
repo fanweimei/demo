@@ -1,0 +1,19 @@
+<div class="wrapper" [ngStyle]="{height: pHeight+'px'}">
+  <div [attr.id]="'box_'+id" class="box">
+    <div class="title">
+      <div class="title-left">
+        <i nz-icon type="bars" theme="outline" title="手柄：拖拽"></i>
+        {{pTitle}}
+      </div>
+      <div class="title-right">
+        <i title="导出" nz-icon type="export" theme="outline"></i>
+        <i title="刷新" nz-icon type="reload" theme="outline"></i>
+        <i title="设置" nz-icon type="setting" theme="outline"></i>
+        <i title="关闭" nz-icon type="close-square" theme="outline" (click)="OnClose($event)"></i>
+      </div>
+    </div>
+    <div class="content">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>
