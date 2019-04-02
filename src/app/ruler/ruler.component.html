@@ -1,3 +1,132 @@
-<p>
-  ruler works!
-</p>
+<div class="g-ruler">
+  <div class="g-group">
+    <h3>
+      <i nz-icon nzType="team" nzTheme="outline"></i>
+      规则组
+    </h3>
+    <div class="search">
+      <nz-input-group [nzSuffix]="suffixIconSearch">
+        <input type="text" nz-input placeholder="请输入分组名" />
+      </nz-input-group>
+      <ng-template #suffixIconSearch>
+        <i nz-icon type="search"></i>
+      </ng-template>
+    </div>
+    <ul>
+      <li *ngFor="let item of group">
+        <a href="javascript:" (click)="showDetailPanel=false">{{item.title}}</a>
+        <span *ngIf="item.count">{{item.count}}</span>
+      </li>
+    </ul>
+  </div>
+  <div class="g-rule-content">
+    <div class="g-list">
+      <div class="bar">
+        <div class="search">
+          <nz-input-group [nzSuffix]="suffixIconSearch">
+            <input type="text" nz-input placeholder="搜索规则" />
+          </nz-input-group>
+          <ng-template #suffixIconSearch>
+            <i nz-icon type="search"></i>
+          </ng-template>
+        </div>
+        <nz-dropdown>
+          <button nz-button nz-dropdown><span>创建规则</span> <i nz-icon type="down"></i></button>
+          <ul nz-menu>
+            <li nz-menu-item>
+              <a>创建事件规则</a>
+            </li>
+            <li nz-menu-item>
+              <a>创建流规则</a>
+            </li>
+            <li nz-menu-item>
+              <a>创建普通规则</a>
+            </li>
+          </ul>
+        </nz-dropdown>
+      </div>
+      <div>
+        <nz-table #basicTable [nzData]="data">
+          <thead>
+            <tr>
+              <th>规则名</th>
+              <th>攻击行为</th>
+              <th>触发</th>
+              <th>状态</th>
+              <th>自定义属性</th>
+              <th>创建时间</th>
+              <th>修改时间</th>
+              <th>创建人</th>
+              <th>备注</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of basicTable.data">
+              <td><a href="javascript:" (click)="showDetail()">{{ data.name }}</a></td>
+              <td>{{ data.offense }}</td>
+              <td>{{ data.dispatched }}</td>
+              <td>{{ data.status }}</td>
+              <td>{{ data.properties }}</td>
+              <td>{{ data.create }}</td>
+              <td>{{data.modify}}</td>
+              <td>{{ data.author }}</td>
+              <td>{{data.note}}</td>
+            </tr>
+          </tbody>
+        </nz-table>
+      </div>
+    </div>
+    <div class="rule-detail" [ngClass]="{'rule-detail': true, 'show': showDetailPanel}">
+      <h3>
+        Database Multiple Database Failure Followed by Success
+        <i nz-icon nzType="radar-chart" nzTheme="outline" nz-tooltip [nzTitle]="'查看这条规则产生的相关数据'"></i>
+      </h3>
+      <ul>
+        <li>
+          <label>规则编号：</label>
+          <span>10001</span>
+        </li>
+        <li>
+          <label>规则类别：</label>
+          <span>基于事件</span>
+        </li>
+        <li>
+          <label>规则调度方式：</label>
+          <span>每周一定时运行</span>
+        </li>
+        <li>
+          <label>创建时间：</label>
+          <span>2016-12-01</span>
+        </li>
+        <li>
+          <label>修改时间：</label>
+          <span>2018-08-12</span>
+        </li>
+        <li>
+          <label>创建账号：</label>
+          <span>admin</span>
+        </li>
+        <li>
+          <label>测试条件：</label>
+          <p>
+            And when an event matches any of the following BB:HostReferences:Database Servers<br />
+            And when at least 50 of these BB:Database:System Action Deny. In any order with the smae source IP Followed
+            by at least 1 of these BB:Database:System Action Allow in any order within 5 minutes
+          </p>
+        </li>
+        <li>
+          <label>备注：</label>
+          <p>Responds when there are multiple database failures followed by a success within a short peiod of time</p>
+        </li>
+        <li>
+          <label>规则动作：</label>
+          <span class="icon">+</span>
+        </li>
+        <li>
+          <label>规则响应：</label>
+          <span class="icon">+</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

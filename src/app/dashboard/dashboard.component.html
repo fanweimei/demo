@@ -15,12 +15,7 @@
         <button nz-button>删除</button>
       </nz-button-group>
     </div>
-    <div class="bar-right">
-      <span>刷新倒计时：</span><span>{{refreshTime}}</span>
-      <i style="font-size:18px;" nz-icon [type]="isAutoRefresh?'pause':'caret-right'" theme="outline" nz-tooltip
-        nzTitle="启动定时刷新" nzPlacement="bottom" (click)="startRefreshTimer()"></i>
-      <i nz-icon type="reload" theme="outline" nz-tooltip nzTitle="手动刷新" nzPlacement="bottom"></i>
-    </div>
+    <count-down></count-down>
   </div>
   <div class="dashboard-content">
     <div class="chart-lib" [ngClass]="{'show': showLibPanel}">
@@ -56,15 +51,15 @@
       <div nz-row style="padding: 5px;">
         <div nz-col nzSpan="6">
           <virus-table [height]="480" [y]="0"></virus-table>
-          <scans-link [height]="200" [y]="480"></scans-link>
+          <scans-link [height]="230" [y]="480"></scans-link>
         </div>
         <div nz-col nzSpan="12">
           <flow-data-chart [height]="400" [y]="0"></flow-data-chart>
           <relationship-chart [height]="500" [y]="400"></relationship-chart>
         </div>
         <div nz-col nzSpan="6">
-          <scans-link [height]="200" [y]="0"></scans-link>
-          <muma-chart [height]="400" [y]="200"></muma-chart>
+          <scans-link [height]="230" [y]="0"></scans-link>
+          <muma-chart [height]="400" [y]="230"></muma-chart>
         </div>
       </div>
       <ng-container *ngFor="let item of extras" [ngSwitch]="item.type">

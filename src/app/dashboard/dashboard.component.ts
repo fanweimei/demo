@@ -9,9 +9,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DashboardComponent implements AfterViewInit {
   source = '风险管理';
-  isAutoRefresh = false;
-  refreshTimer = null;
-  refreshTime = 60;
   showLibPanel = false;
   range = {
     left: 0,
@@ -21,25 +18,9 @@ export class DashboardComponent implements AfterViewInit {
   };
   extras = [];
 
-  constructor(private http: HttpClient) { }
-
   ngAfterViewInit() {
     this.range = document.querySelector('.dashboard-content').getBoundingClientRect();
     console.log(this.range);
-  }
-
-  startRefreshTimer() {
-    this.isAutoRefresh = !this.isAutoRefresh;
-    clearInterval(this.refreshTimer);
-    if (this.isAutoRefresh) {
-      this.refreshTime = 60;
-      this.refreshTimer = setInterval(() => {
-        this.refreshTime--;
-        if (this.refreshTime < 0) {
-          this.refreshTime = 60;
-        }
-      }, 1000);
-    }
   }
 
   addChart() {

@@ -1,3 +1,31 @@
-<p>
-  alert works!
-</p>
+<div class="g-alert">
+  <ul class="top">
+    <li>
+      <label>待处理告警事件</label>
+      <strong>980</strong>
+    </li>
+    <li>
+      <label>紧急告警事件</label>
+      <strong>100</strong>
+    </li>
+    <li>
+      <label>一般告警事件</label>
+      <strong>380</strong>
+    </li>
+    <li>
+      <label>次要告警事件</label>
+      <strong>500</strong>
+    </li>
+  </ul>
+  <div nz-row nzGutter="20" class="g-stats">
+    <div nz-col nzSpan="8" class="g-chart">
+      <div echarts [options]="leftOption" class="chart-box"></div>
+    </div>
+    <div nz-col nzSpan="8" class="g-chart">
+      <div echarts [options]="centerOption" class="chart-box"></div>
+    </div>
+    <div nz-col nzSpan="8" class="g-chart">
+      <div echarts [options]="rightOption" class="chart-box"></div>
+    </div>
+  </div>
+</div>

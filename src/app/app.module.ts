@@ -19,6 +19,7 @@ import { VirusTableComponent } from './dashboard/virus-table.component';
 import { ScansLinkComponent } from './dashboard/scans-link.component';
 import { MumaChartComponent } from './dashboard/muma-chart.component';
 import { RelationshipChartComponent } from './dashboard/relationship-chart.component';
+import { CountdownComponent } from './Countdown.component';
 
 registerLocaleData(zh);
 
@@ -33,7 +34,8 @@ registerLocaleData(zh);
     VirusTableComponent,
     ScansLinkComponent,
     MumaChartComponent,
-    RelationshipChartComponent
+    RelationshipChartComponent,
+    CountdownComponent
   ],
   imports: [
     BrowserModule,
