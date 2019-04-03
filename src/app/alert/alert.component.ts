@@ -72,7 +72,7 @@ export class AlertComponent implements OnInit {
 
   setCenterOption() {
     this.centerOption = {
-      // backgroundColor: '#2c343c',
+      // backgroundColor: 'rgba(0,0,0,0.2)',
       title: {
         text: '所有告警事件类别占比'
       },
@@ -97,24 +97,24 @@ export class AlertComponent implements OnInit {
           radius: '55%',
           center: ['50%', '50%'],
           data: [
-            { value: 335, name: 'API攻击' },
-            { value: 310, name: '舞弊' },
-            { value: 274, name: '恶意行为' },
-            { value: 235, name: '病毒' },
-            { value: 400, name: '水滴式泄露' }
+            { value: 335, name: '入侵' },
+            { value: 310, name: '异常流浪' },
+            { value: 274, name: '僵木蠕' },
+            { value: 235, name: '系统漏洞' },
+            { value: 400, name: '防火墙关闭' }
           ].sort(function (a, b) { return a.value - b.value; }),
           roseType: 'radius',
           label: {
             normal: {
               textStyle: {
-                color: 'rgba(0, 0, 0, 0.7)'
+                color: 'rgba(0, 0, 0, 0.9)'
               }
             }
           },
           labelLine: {
             normal: {
               lineStyle: {
-                color: 'rgba(0, 0, 0, 0.7)'
+                color: 'rgba(0, 0, 0, 0.9)'
               },
               smooth: 0.2,
               length: 10,
@@ -124,7 +124,7 @@ export class AlertComponent implements OnInit {
           itemStyle: {
             normal: {
               color: '#c23531',
-              shadowBlur: 200,
+            //  shadowBlur: 200,
               shadowColor: 'rgba(0, 0, 0, 0.5)'
             }
           },
@@ -167,7 +167,12 @@ export class AlertComponent implements OnInit {
       series: [
         {
           type: 'bar',
-          data: [18203, 23489, 29034, 104970, 131744, 630230]
+          data: [18203, 23489, 29034, 104970, 131744, 630230],
+          itemStyle: {
+            normal: {
+              color: function (d) { return "#" + Math.floor(Math.random() * (256 * 256 * 256 - 1)).toString(16); }
+            }
+          },
         }
       ]
     };

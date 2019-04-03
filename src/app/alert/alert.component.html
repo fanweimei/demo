@@ -28,4 +28,82 @@
       <div echarts [options]="rightOption" class="chart-box"></div>
     </div>
   </div>
+  <div class="g-list">
+    <h3>最近产生的告警消息</h3>
+    <nz-table nzTemplateMode [nzFooter]="footer">
+      <thead>
+        <tr>
+          <th>名称</th>
+          <th>告警级别</th>
+          <th>类型</th>
+          <th>告警来源</th>
+          <th>产生条件</th>
+          <th>产生时间</th>
+          <th>原IP地址</th>
+          <th>端口号</th>
+          <th>描述</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>网站攻击</td>
+          <td>紧急</td>
+          <td>DDos</td>
+          <td>防火墙</td>
+          <td>M值大于50</td>
+          <td>2018-12-01 02:00:00</td>
+          <td>127.0.0.1</td>
+          <td>8899</td>
+          <td>多个目标发起了DDos攻击</td>
+        </tr>
+        <tr>
+          <td>网站攻击</td>
+          <td>紧急</td>
+          <td>DDos</td>
+          <td>防火墙</td>
+          <td>M值大于50</td>
+          <td>2018-12-01 02:00:00</td>
+          <td>127.0.0.1</td>
+          <td>8899</td>
+          <td>多个目标发起了DDos攻击</td>
+        </tr>
+        <tr>
+          <td>网站攻击</td>
+          <td>紧急</td>
+          <td>DDos</td>
+          <td>防火墙</td>
+          <td>M值大于50</td>
+          <td>2018-12-01 02:00:00</td>
+          <td>127.0.0.1</td>
+          <td>8899</td>
+          <td>多个目标发起了DDos攻击</td>
+        </tr>
+        <tr>
+          <td>网站攻击</td>
+          <td>紧急</td>
+          <td>DDos</td>
+          <td>防火墙</td>
+          <td>M值大于50</td>
+          <td>2018-12-01 02:00:00</td>
+          <td>127.0.0.1</td>
+          <td>8899</td>
+          <td>多个目标发起了DDos攻击</td>
+        </tr>
+        <tr>
+          <td>网站攻击</td>
+          <td>紧急</td>
+          <td>DDos</td>
+          <td>防火墙</td>
+          <td>M值大于50</td>
+          <td>2018-12-01 02:00:00</td>
+          <td>127.0.0.1</td>
+          <td>8899</td>
+          <td>多个目标发起了DDos攻击</td>
+        </tr>
+      </tbody>
+      <ng-template #footer>
+        <a href="javascript:">查看所有预警消息</a>
+      </ng-template>
+    </nz-table>
+  </div>
 </div>
